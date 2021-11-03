@@ -1,0 +1,6 @@
+[{"id":1,"botAction":[
+  {"text":"К какому специалисту вы хотите записаться?"}],
+  "userAction":[
+    {"type":"getSpecialty","text":"Выбрать специализацию","connect":10}]
+},
+{"id":10,"botAction":[{"text":"Какую услугу вы бы хотели выбрать?"}],"userAction":[{"type":"getServices","text":"Выбрать услугу","connect":20}]},{"id":20,"botAction":[{"text":"К какому доктору вы хотели записаться?"}],"userAction":[{"type":"getDoctor","text":"Выбрать сотрудника"}]}]

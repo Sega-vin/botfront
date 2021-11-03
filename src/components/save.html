@@ -1,0 +1,171 @@
+<div class="windowAdd">
+  <header class="windowAdd__header">
+    Выберите специализацию
+    {{activeSpecialist.title}}
+  </header>
+  <div class="windowAdd__body">
+    <ul class="windowAdd__list">
+      <li 
+        class="windowAdd__listitem windowAdd__listitem--add"
+      >
+        <button
+          class="windowAdd__btnAdd"
+        >
+        <v-icon fab>mdi-plus</v-icon>
+        </button>
+      </li>
+      <li 
+        class="windowAdd__listitem"
+        :key="index" 
+        v-for="(value, index) in services"
+        @dragstart="onDragStart($event, value.id)"
+      >
+        {{value.name}}
+        <v-icon 
+          :color="colors.lite.value"
+          v-if="selectedServices.indexOf(value.id) == -1"
+          @click="addServicesInSpecialists(value.id)" 
+        >mdi-plus</v-icon>
+        <v-icon 
+          :color="colors.lite.value"
+          v-if="selectedServices.indexOf(value.id) !== -1" 
+          @click="deleteServicesInSpecialists(value.id)"
+        >mdi-check-bold</v-icon>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="stepTheme__colors stepTheme__colors--small">
+  <p class="stepTheme__text">Цвет фона чата</p>   
+  <div class="stepTheme__colorsWrap">
+    <div class="stepTheme__color" :style="{ backgroundColor: item.value }" v-for="(item, index) in colors" :key="index">    
+      <span 
+        v-if="index == 'dark'" 
+        class="stepTheme__colorPick"
+        @click="showMenu($event)"
+      >
+        <div class="stepTheme__iconCenter">
+          <v-icon :color="colors.lite.value">mdi-playlist-edit</v-icon>
+        </div>
+      </span>
+    </div>
+  </div>
+    
+</div>
+<div class="simpleCon__step" v-show="step == 4">
+  <div class="StepSpec">
+    <div class="StepSpec__row">
+      <div class="StepSpec__add">
+        <h2 class="simpleCon__title">Добавим категории сотрудников</h2>
+        <p class="simpleCon__text">Давайте добавим категории всех сотрудников вашей компании.</p>
+        <validation-observer
+          ref="specForm"
+          v-slot="{ invalid }"
+        >
+          <form @submit.prevent="addSpecialization()">
+           <label for="SpecName" class="simpleCon__label">Введите категорию сотрудника</label>
+            <validation-provider 
+            v-slot="{ errors }"
+            name="Категория сотрудника"
+            rules="required"
+            mode="aggressive"
+            >
+              <input 
+                type="text" 
+                id="SpecName" 
+                class="appInput simpleCon__input" 
+                placeholder="Кардиолог"
+                v-model.trim="SpecName"
+                required
+              > 
+              <p class="errorText" v-for="(err, index) in errors" :key="index">
+                {{err}}
+              </p>
+            </validation-provider>
+            <div class="StepSpec__btnWrapper">
+              <button 
+                type="submit"
+                :disabled="invalid"
+                class="appBtn StepSpec__btn"
+              >Добавить</button>
+              <button class="appBtn StepSpec__btn" type="button" @click="clearSpec()">Отменить</button>
+            </div>
+          </form>
+        </validation-observer>
+      </div>
+      <div class="StepSpec__view">
+        <h2 class="StepSpec__title simpleCon__title">Добавленные категории</h2>
+        <ul class="StepStaff__list">
+          <li class="StepStaff__listitem" v-for="(value, i) in specialists" :key="i" @click="selectActiveService(value)">
+            <img src="../assets/mainlogo.png" alt="" class="StepStaff__avatar">
+            <div class="StepStaff__staff">
+              <p 
+                v-if="onEdit !== (value.id + 'spec')"
+                class="StepStaff__stafftext"
+              >
+              {{value.title}}
+              </p>   
+              <input 
+                type="text"
+                :value="value.title" 
+                @blur="onEdit = null"
+                @change="editSpec(value.id, $event)"
+                v-show="onEdit == (value.id + 'spec')"    
+                ref="specInput"
+                class="simpleCon__inputEdit"
+              >  
+              <div class="StepStaff__staffbtn">
+                <button 
+                  class="StepStaff__staffdelete"
+                  @click="editSpecStart(value.id, i)"
+                >
+                  <v-icon :color="colors.lite.value" size="18">mdi-pencil</v-icon>
+                </button>
+                <button class="StepStaff__staffdelete">
+                  <v-icon :color="colors.lite.value" size="18" @click="deleteSpec(value.id)">mdi-trash-can-outline</v-icon>
+                </button>
+              </div>
+            </div>                     
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="simpleCon__buttonNav">
+      <button 
+        class="appBtn appBtn--lite"
+        @click="step--"
+      >
+        <v-icon class="iconBtn-left" :color="colors.lite.value">mdi-chevron-left</v-icon> 
+        Назад 
+      </button>
+       
+      <button 
+        class="appBtn"
+        @click="step++"
+      >
+        Далее 
+        <v-icon class="iconBtn-right" :color="colors.lite.value">mdi-chevron-right</v-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<ul class="windowAdd__list"
+v-for="(subitem, i1) in selectedServices" 
+:key="i1" 
+v-if="subitem.category == item.id"
+>
+<li 
+class="windowAdd__listitem"
+v-for="(subitem2, i2) in subitem" :key="i2"
+@dragstart="onDragStart($event, subitem2.id)"
+draggable="true"
+>
+  {{subitem2.name}}  
+  <button 
+    class="StepStaff__staffdelete"
+    @click="deleteServicesInSpecialists(subitem2.id, item.id)"
+  >
+    <v-icon :color="colors.lite.value" size="18" >mdi-trash-can-outline</v-icon>       
+  </button>               
+</li>
+</ul>

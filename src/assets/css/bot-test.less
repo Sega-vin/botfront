@@ -1,0 +1,204 @@
+.botTest{
+  min-height: 400px;
+  max-height: 580px;
+  position: relative;
+  padding-bottom: 90px;
+  position: relative;
+  &::after, &::before{
+    content: '';
+    background-color: #fff;
+    opacity: 0.7;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 93%;
+    bottom: 10px; 
+    border-radius: 20px;
+    height: 60px;
+  }
+  &::before{
+    bottom: -10px;
+    opacity: 0.5;
+    width: 83%;
+  }
+  &__wrapper{
+    padding: 24px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 5;
+  }
+  & p{
+    margin-bottom: 0 !important;
+  }
+  &__header{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--meduim-color);
+    padding-bottom: 20px;
+  }
+  &__logo{
+    width: 75px;
+    height: auto;
+    overflow: hidden;
+    & img{
+      width: 100%;
+    }
+  }
+  &__name{
+    margin-left: 33px;
+    color: var(--main-color);
+  }
+  &__botname{
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+  &__status{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 7px;
+    display: block;
+  }
+  &__dotsVertical{
+    position: absolute;
+    fill: var(--main-color);
+    transform: rotate(90deg);
+    height: 470px;
+    width: 200px;
+    &--right{
+      right: 0;
+      top: -100px;
+    }
+    &--left{
+      left: 0;
+      bottom: -20px;
+    }
+  }
+}
+.bot-test-action{
+  background-color: var(--meduim-1-color);
+  padding: 16px 32px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 20px 20px 20px 1px;
+  color: var(--main-color);
+}
+.bot-test-wrapper{
+  display: flex;
+  margin-top: 20px;
+  align-items: flex-end;
+  width: 100%;
+  & .calendarBot__logo{
+    max-width: 38px;
+    margin-right: 10px;
+  }
+}
+
+.reload{
+  position: absolute;
+  bottom: 10px;
+  z-index: 50;
+}
+.test-wrapper{
+  margin: 0 auto;
+  max-height: 400px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  overflow-y: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.botTest .user-button .v-btn__content{
+  color: #fff !important;
+}
+.user-button-wrapper{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 45px;
+}
+.user-button, .user-test-action{
+  background-color: var(--main-color);
+  padding: 16px 32px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 20px;
+  color: var(--lite-color);
+  margin-top: 20px;
+  transition: all .2s;
+  
+}
+.user-button{
+  &:hover{
+    opacity: 0.7;
+    transition: all .2s;
+  }
+  &:active{
+    opacity: 0.4;
+    transition: all .2s;
+  }
+}
+.user-test-action{
+  align-self: flex-end;
+  border-radius: 20px 20px 1px 20px;
+  margin-left: auto;
+}
+.user-field{
+  max-width: 320px;
+  & .appInput{
+    margin-top: 10px;
+  }
+}
+.user-field.user-field-save{
+  display: block;
+}
+.user-save{
+  display: block;
+  border: 1px solid #f2f2f2;
+  padding: 15px;
+  border-radius: 15px;
+}
+.user-wrapper{
+  margin-right: 20px;
+}
+.inputarea{
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--meduim-color);
+
+  &__input{
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    border-radius: 10px;
+    flex: 1;
+  }
+  &__send{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    & svg{
+      margin: auto;
+    }
+  }
+}
+@media(max-width: 650px){
+  .test-wrapper{
+    width: 100%;
+  }
+}

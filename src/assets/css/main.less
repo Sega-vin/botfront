@@ -1,0 +1,306 @@
+@import "./smart-grid.less";
+::-webkit-scrollbar {
+  width: 5px; /* ширина для вертикального скролла */
+  height: 2px; /* высота для горизонтального скролла */
+  background-color: transparent;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 9em;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-color);
+
+}
+a{
+  text-decoration: none;
+}
+ul, li{
+  list-style: none;
+  padding-left: 0 !important;
+}
+.errorText{
+  color: #EA4335;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.appBtn{
+  background: var(--main-color);
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  color: #fff !important;
+  padding: 11px;
+  transition: all 0.3s;
+  margin-top: 10px;
+  &--small{
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  &:hover{
+    opacity: 0.7;
+    transition: all 0.3s;
+  }
+  &:active{
+    transition: all 0.3s;
+    opacity: 0.5;
+  }
+  & .iconBtn-right{
+    margin-left: 10px;
+  }
+  & .iconBtn-left{
+    margin-right: 10px;
+  }
+  &--lite{
+    background-color: var(--neutral-color);
+  }
+  &[disabled]{
+    opacity: 0.5;
+  }
+}
+.appInput{
+  background-color: var(--meduim-1-color);
+  color: var(--superdark-color);
+  outline-color: var(--main-color);
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  border: 1px solid var(--main-color);
+  &::placeholder{
+    color: var(--main-color);
+    opacity: 0.7;
+  }
+  
+}
+// main layout
+.main-layout-wrapper{
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+@media(max-width: 650px){
+  .view-container{
+    margin-top: 70px;
+  }
+}
+//
+.main-back{
+  background: #f2f2f2 !important;
+  position: relative;
+}
+.main-back .lang-select{
+  position: absolute;
+  width: 100px;
+  top: 10px;
+  left: 10px;
+  z-index: 6;
+  margin: 0;
+  padding: 0;
+}
+.main-wrapper{
+  position: relative;
+}
+.section{
+  position: relative;
+}
+.panel{
+  background-color: #fff;
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.action{
+  text-align: center;
+  border: 1px solid#1976d2;
+  border-radius: 10px;
+  padding: 10px;
+}
+.botAction{
+  margin-bottom: 15px;
+}
+.action p{
+ font-weight: 300;
+ font-size: 16px;
+ margin-bottom: 5px !important;
+}
+.panel-btn{ 
+  margin-top: 20px;
+}
+.panel  .v-btn__content{
+  font-size: 12px;
+  display: block;
+  flex: auto;
+}
+.panel .action button.v-btn{
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  white-space: normal;
+}
+.userActionWrapper{
+  position: relative;
+}
+.panel .action button.action-btn-user{
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.panel .action button.connect-btn{
+  position: absolute;
+  width: 20px;
+  bottom: 5px;
+  right: 5px;
+}
+.construct .col{
+  padding: 20px !important;
+}
+.button-absolute.v-btn{
+  position: absolute;
+  top: 150px;
+  bottom: 0;
+  right: -30px;
+}
+.button-center.v-btn{
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+.button-panel.v-btn{
+  margin: 0 auto;
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+
+.construct .btn-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.construct .save-btn{
+  width: 220px;
+  display: block;
+  margin-left: 20px;
+}
+@media(max-width: 650px){
+  .construct .btn-wrapper{
+    justify-content: space-around;
+  }
+  .construct .save-btn{
+    margin-left: 0;
+    width: auto;
+  }
+}
+.botActionWrapper, .userActionWrapper{
+  padding: 10px;
+  border: 1px solid#1976d2;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.botActionWrapper strong{
+  color: #1976d2;
+}
+.panel button.connectActive{
+  background-color: #ff7f50 !important;
+}
+.panel .edit-field{
+  padding: 10px 0;
+  width: auto;
+}
+canvas{
+  position: absolute;
+  z-index: 22;
+}
+.v-main__wrap{
+  position: static !important;
+}
+// .container{
+//   max-width: 90% !important;
+// }
+
+.panel{
+  position: relative;
+}
+.panel button.delete-btn{
+  background-color: transparent !important;
+  box-shadow: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.action-item{
+  position: relative;
+}
+.action-item .action-delete{
+  display: none;
+}
+.panel .action-item:hover button.action-delete{
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 5px;
+  padding: 0;
+  top: 5px;
+}
+
+.panel{
+  position: relative;
+}
+.panel button.delete-btn{
+  background-color: transparent !important;
+  box-shadow: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.action-item{
+  position: relative;
+}
+.action-item .action-delete{
+  display: none;
+}
+.panel .action-item:hover button.action-delete{
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 5px;
+  padding: 0;
+  top: 5px;
+}
+
+// main layout
+.main-layout-wrapper{
+  display: flex;
+}
+// sidebar
+.sidebar{
+  height: 100vh;
+}
+.sidebar .sidebar-link{
+  text-decoration: none;
+  color: inherit;
+}
+.button-menu{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+.sidebar-wrapper{
+  width: 0;
+  
+}
+// modal user
+.dialogUser button.activeAction{
+  background-color: #1976d2;
+  color: #fff !important;
+}

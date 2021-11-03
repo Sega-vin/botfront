@@ -1,0 +1,32 @@
+[
+  {
+    "id":1,
+    "botAction":[{"text":"Privet"}],
+    "userAction":[{"type":"VariableBtn","text":"go","connect":10}]
+  },
+  {
+    "id":10,
+    "botAction":[{"text":"ok"}],
+    "userAction":[{"type":"VariableBtn","text":"go","connect":12}]
+  },
+  {
+    "id":12,
+    "botAction":[{"text":"ok"}],
+    "userAction":[{"type":"VariableBtn","text":"go","connect":32}]
+  },
+  {
+    "id":32,
+    "botAction":[{"text":"ok"}],
+    "userAction":[{"type":"VariableBtn","text":"go","connect":22}]
+  },
+  {
+    "id":22,
+    "botAction":[{"text":"ok"}],
+    "userAction":[{"type":"VariableBtn","text":"go","connect":33}]
+  },
+  {
+    "id":33,
+    "botAction":[{"text":"ok"}],
+    "userAction":[{"type":"VariableBtn","text":"go","connect":12}]
+  }
+]

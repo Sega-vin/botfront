@@ -1,0 +1,16 @@
+version: '3'
+# without nginx, just run npm serve
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+#    env_file:
+#      - deploy/dev/dev.env
+    network_mode: backend
+#    network_mode: backend_repo_back

@@ -1,0 +1,113 @@
+.lending{
+  height: 100vh;
+  background: linear-gradient(to top, var(--lite-color), var(--meduim-1-color) 35%);
+  padding: 30px;
+  padding-bottom: 50px;
+  &__intro{
+    text-align: center;
+  }
+  &__title{
+    font-size: 50px;
+    line-height: 60px;    
+    color: var(--superdark-color);
+    & span{
+      color: var(--main-color);
+      display: block;
+    }
+  }
+  &__text{
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--main-color);
+    margin-top: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 535px;
+  }
+  &__widget{
+    max-width: 730px;
+    margin: 0 auto;
+    margin-top: 42px;
+    position: relative;
+  }
+}
+svg{
+  height: 100%;
+}
+.ellipseBig{
+  width: 142px;
+  position: absolute;
+  height: 142px;
+  stroke: var(--main-color);
+}
+.dotsVertical{
+  width: 90px;
+  fill: var(--main-color);
+  position: absolute;
+  height: 199px;
+}
+.widget__figure{
+  position: absolute;
+  z-index: 5;
+}
+.widget__figure1 {
+  left: -200px;
+  top: -150px;
+  height: 260px;
+  & .ellipseBig{
+    top: 0;
+    left: -8px;
+  }
+  & .dotsVertical{
+    bottom: 0;
+  }
+}
+
+.widget__figure2 {
+  left: -450px;
+  top: 100px;
+  & .ellipseBig{
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.widget__figure3 {
+  left: -350px;
+  top: 330px;
+  & .ellipseBig{
+    left: 25px;
+    top: 10px;
+  }
+  & .dotsVertical{
+  }
+}
+
+.widget__figure4 {
+  right: -80px;
+  top: -150px;
+  & .ellipseBig{
+    width: 90px;
+    height: 90px;
+  }
+}
+.widget__figure5 {
+  right: -200px;
+  top: 50px;
+  & .ellipseBig{
+    width: 150px;
+    height: 150px;
+  }
+}
+.widget__figure6 {
+  right: -100px;
+  top: 400px;
+  & .ellipseBig{
+    width: 90px;
+    height: 90px;
+    top: 10px;
+  }
+  & .dotsVertical{
+    transform: rotate(90deg);
+  }
+}

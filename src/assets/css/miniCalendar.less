@@ -1,0 +1,97 @@
+.calendarForStaff{
+  &__checkbox{
+    display: flex;
+    border-radius: 4px !important;
+    margin-top: 10px;
+    overflow: hidden;
+    background-color: var(--meduim-1-color);
+  }
+  &__day{
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    background-color: var(--main--color);
+    font-weight: 500;
+    &--active{
+      background-color: var(--main-color);
+      color: #fff;
+      border-radius: 0px 15px 15px 0px;
+    }
+    &--watched{
+      color: #fff;
+      background-color: var(--superdark-color);
+    }
+    &--disabled{
+      color: #EA4335;
+    }
+  }
+  &__radio{
+    display: none;
+  }
+  &__checkboxWrap{
+    display: flex;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    &:hover{
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    &--solo{
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+  &__label{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    cursor: pointer;
+    text-align: right;
+  }
+  &__label--solo{
+    text-align: left;
+    padding-left: 30px;
+  }
+  &__radioView{
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 2px solid var(--main-color);
+    & i {
+      display: none !important;
+      vertical-align: top !important;
+    }
+  }
+  &__radio:checked + &__radioView i{
+    display: block !important;
+  }
+  &__time{
+    background-color: var(--meduim-1-color);border-radius: 4px;
+    width: 112px;
+    padding: 8px 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+    color: var(--superdark-color);
+    position: relative;
+  }
+  &__time::-webkit-calendar-picker-indicator {
+    width: 100%;
+    position: absolute;
+    cursor: pointer;
+    background: none;
+  }
+  &__timelabel{
+    
+  }
+  &__timewrapper{
+    &--disabled{
+      opacity: 0.5;
+    }
+  }
+  &__appBtn{
+    margin-top: 20px;
+  }
+}
